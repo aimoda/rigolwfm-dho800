@@ -2,6 +2,39 @@
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
+[project]
+name = "rigolwfm-dho800"
+dynamic = ["version"]
+description = "Process Rigol oscilloscope waveform files (DHO800 series focus)"
+readme = "README.rst"
+requires-python = ">=3.8"
+license = {text = "BSD 3-clause"}
+authors = [
+    {name = "Scott Prahl", email = "scott.prahl@oit.edu"},
+    {name = "ai.moda (DHO800 fork)"}
+]
+keywords = ["rigol", "oscilloscope", "waveform", "DHO800", "DHO804", "DHO814", "DHO824"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering"
+]
+
+[project.urls]
+Homepage = "https://github.com/aimoda/rigolwfm-dho800"
+Repository = "https://github.com/aimoda/rigolwfm-dho800"
+Issues = "https://github.com/aimoda/rigolwfm-dho800/issues"
+
+[tool.setuptools.dynamic]
+version = {attr = "RigolWFM._version.__version__"}
+
 [tool.ruff]
 ignore = ["F403", "E501", "F401"]
 exclude =['.git', '__pycache__', 'docs', 'wfm']

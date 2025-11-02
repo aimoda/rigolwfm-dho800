@@ -15,13 +15,14 @@ docstrings that follow the Google docstring format.
 import re
 import os.path
 
-project = 'RigolWFM'
+project = 'rigolwfm-dho800'
+internal_package = 'RigolWFM'
 master_doc = 'index'
 
 def get_init_property(prop):
     """Return property from __init__.py."""
     here = os.path.abspath(os.path.dirname(__file__))
-    file_name = os.path.join(here, '..', project, '__init__.py')
+    file_name = os.path.join(here, '..', internal_package, '__init__.py')
     regex = r'{}\s*=\s*[\'"]([^\'"]*)[\'"]'.format(prop)
     with open(file_name, 'r', encoding='utf-8') as file:
         result = re.search(regex, file.read())

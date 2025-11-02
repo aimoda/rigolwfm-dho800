@@ -224,7 +224,7 @@ def main():
             print("File contents do not follow the format for", end='', file=sys.stderr)
             print("for the Rigol Oscilloscope Model %s." % args.model, file=sys.stderr)
             print("To help with development, please report this error\n", file=sys.stderr)
-            print("as an issue to https://github.com/scottprahl/RigolWFM\n", file=sys.stderr)
+            print("as an issue to https://github.com/aimoda/rigolwfm-dho800/issues\n", file=sys.stderr)
             print(e, file=sys.stderr)
             sys.exit()
 

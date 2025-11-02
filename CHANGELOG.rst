@@ -1,6 +1,18 @@
 Changelog
 =========
 
+2.0.x (Fork: rigolwfm-dho800)
+------------------------------
+*    Forked from scottprahl/RigolWFM v1.0.0 with focus on DHO800 series support
+*    Changed PyPI package name to ``rigolwfm-dho800``
+*    Implemented automated versioning (X.Y.COMMIT_COUNT format)
+*    Updated all repository references to aimoda/rigolwfm-dho800
+*    Added new GitHub Actions workflow for automated PyPI publishing
+*    Updated documentation to reflect DHO800 series focus
+*    Maintained backward compatibility with internal package structure
+
+---- Original RigolWFM Changelog ----
+
 1.0.1 (unreleased)
 ------
 *    fix badges

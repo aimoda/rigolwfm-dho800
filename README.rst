@@ -1,14 +1,10 @@
-.. |pypi-badge| image:: https://img.shields.io/pypi/v/RigolWFM?color=68CA66
-   :target: https://pypi.org/project/RigolWFM/
+.. |pypi-badge| image:: https://img.shields.io/pypi/v/rigolwfm-dho800?color=68CA66
+   :target: https://pypi.org/project/rigolwfm-dho800/
    :alt: pypi
 
-.. |github-badge| image:: https://img.shields.io/github/v/tag/scottprahl/RigolWFM?label=github&color=68CA66
-   :target: https://github.com/scottprahl/RigolWFM
+.. |github-badge| image:: https://img.shields.io/github/v/tag/aimoda/rigolwfm-dho800?label=github&color=68CA66
+   :target: https://github.com/aimoda/rigolwfm-dho800
    :alt: github
-
-.. |conda-badge| image:: https://img.shields.io/conda/vn/conda-forge/RigolWFM?label=conda&color=68CA66
-   :target: https://github.com/conda-forge/RigolWFM-feedstock
-   :alt: conda
 
 .. |kaitaistruct| image:: https://img.shields.io/badge/kaitai-struct-68CA66
    :target: https://ide.kaitai.io
@@ -18,56 +14,42 @@
    :target: https://zenodo.org/badge/latestdoi/244228290
    :alt: doi
 
-.. |license-badge| image:: https://img.shields.io/github/license/scottprahl/RigolWFM?color=68CA66
-   :target: https://github.com/scottprahl/RigolWFM/blob/main/LICENSE.txt
+.. |license-badge| image:: https://img.shields.io/github/license/aimoda/rigolwfm-dho800?color=68CA66
+   :target: https://github.com/aimoda/rigolwfm-dho800/blob/main/LICENSE.txt
    :alt: License
 
-.. |test-badge| image:: https://github.com/scottprahl/RigolWFM/actions/workflows/test.yaml/badge.svg
-   :target: https://github.com/scottprahl/RigolWFM/actions/workflows/test.yaml
+.. |test-badge| image:: https://github.com/aimoda/rigolwfm-dho800/actions/workflows/test.yaml/badge.svg
+   :target: https://github.com/aimoda/rigolwfm-dho800/actions/workflows/test.yaml
    :alt: Testing
 
-.. |docs-badge| image:: https://readthedocs.org/projects/rigolwfm/badge?color=68CA66
-   :target: https://rigolwfm.readthedocs.io
-   :alt: Docs
-
-.. |downloads-badge| image:: https://img.shields.io/pypi/dm/RigolWFM?color=68CA66
-   :target: https://pypi.org/project/RigolWFM/
+.. |downloads-badge| image:: https://img.shields.io/pypi/dm/rigolwfm-dho800?color=68CA66
+   :target: https://pypi.org/project/rigolwfm-dho800/
    :alt: Downloads
 
-RigolWFM
-=========
+rigolwfm-dho800
+===============
 
-by Scott Prahl
+by ai.moda (Fork of RigolWFM by Scott Prahl)
 
-A utility to process Rigol oscilloscope ``.wfm`` files
-------------------------------------------------------
+A utility to process Rigol DHO800 series oscilloscope ``.wfm`` files
+--------------------------------------------------------------------
 
-|pypi-badge| |github-badge| |conda-badge| |kaitaistruct| |zenodo-badge|
+|pypi-badge| |github-badge| |kaitaistruct|
 
-|license-badge| |test-badge| |docs-badge| |downloads-badge|
+|license-badge| |test-badge| |downloads-badge|
 
-This project is intended to be a comprehensive resource for interpreting waveform ``.wmf`` files created by any Rigol oscilloscope.  Open source (and Rigol's own applications) that parse/convert Rigol's binary ``.wfm`` files are sadly balkanized: each program tends to support a single oscilloscope group and the available efforts are spread across a range of languages.
+**Note**: This is a fork of scottprahl/RigolWFM focused on DHO800 series support (DHO804, DHO814, DHO824, DHO914, DHO924). For the original project supporting other Rigol oscilloscope series, visit `RigolWFM <https://github.com/scottprahl/RigolWFM>`_.
 
-This project leverages a domain specific language (kaitai struct) to represent the binary files.  Once a binary file has been described in this text format, parsers can be generated for a wide range of languages (C++/STL, C#, Go, Java, JavaScript, Lua, Perl, PHP, Python, and Ruby).  
+This project provides tools to interpret waveform ``.wfm`` files created by Rigol DHO800 series oscilloscopes. It leverages kaitai struct, a domain specific language to represent binary files.  Once a binary file has been described in this text format, parsers can be generated for a wide range of languages (C++/STL, C#, Go, Java, JavaScript, Lua, Perl, PHP, Python, and Ruby).
 
-Documentation can be found at <https://RigolWFM.readthedocs.io>
+Original documentation: <https://RigolWFM.readthedocs.io>
 
 Installation
 ---------------
 
 You can install locally using pip::
-    
-    pip install --user RigolWFM
 
-or ``conda``::
-
-    conda install -c conda-forge RigolWFM
-
-or use immediately by clicking the Google Colaboratory button below
-
-.. image:: https://colab.research.google.com/assets/colab-badge.svg
-  :target: https://colab.research.google.com/github/scottprahl/RigolWFM/blob/main
-  :alt: Colab
+    pip install --user rigolwfm-dho800
 
 or `analyze your files using the kaitai struct IDE <https://ide.kaitai.io>`_ (you will need to manually upload the appropriate `.ksy` file and your `.wfm` to the IDE).  This allows one to interactively reverse engineer binary file formats directly in your browser.  This is super helpful for those Rigol ``.wfm`` formats that are undocumented or not parsing correctly.
 
@@ -137,6 +119,11 @@ This has been a bit of an adventure.  In the process of nailing down the basic f
 
 
 Source code repository
+-------------------------------------------
+
+    <https://github.com/aimoda/rigolwfm-dho800>
+
+Original upstream project
 -------------------------------------------
 
     <https://github.com/scottprahl/RigolWFM>
