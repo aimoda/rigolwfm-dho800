@@ -18,10 +18,6 @@
    :target: https://github.com/aimoda/rigolwfm-dho800/blob/main/LICENSE.txt
    :alt: License
 
-.. |test-badge| image:: https://github.com/aimoda/rigolwfm-dho800/actions/workflows/test.yaml/badge.svg
-   :target: https://github.com/aimoda/rigolwfm-dho800/actions/workflows/test.yaml
-   :alt: Testing
-
 .. |downloads-badge| image:: https://img.shields.io/pypi/dm/rigolwfm-dho800?color=68CA66
    :target: https://pypi.org/project/rigolwfm-dho800/
    :alt: Downloads
@@ -36,7 +32,7 @@ A utility to process Rigol DHO800 series oscilloscope ``.wfm`` files
 
 |pypi-badge| |github-badge| |kaitaistruct|
 
-|license-badge| |test-badge| |downloads-badge|
+|license-badge| |downloads-badge|
 
 **Note**: This is a fork of scottprahl/RigolWFM focused on DHO800 series support (DHO804, DHO814, DHO824, DHO914, DHO924). For the original project supporting other Rigol oscilloscope series, visit `RigolWFM <https://github.com/scottprahl/RigolWFM>`_.
 
