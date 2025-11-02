@@ -29,7 +29,7 @@ setup(
     name=project,
     long_description=get_contents('README.rst'),
     long_description_content_type='text/x-rst',
-    # version is handled by pyproject.toml dynamic configuration
+    # version is defined statically in pyproject.toml and updated by CI
     author=get_init_property('__author__'),
     author_email=get_init_property('__email__'),
     license=get_init_property('__license__'),

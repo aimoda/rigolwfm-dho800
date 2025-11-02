@@ -1,34 +1,32 @@
-A checklist for releasing a new version
+A checklist for releasing a new version of rigolwfm-dho800
 
 # sanity test the release
   make rcheck
 
-# make sure package builds
+# make sure package builds locally
   python -m build
   make clean
 
-# update the version in setup.cfg AND docs/conf.py
-  git commit setup.cfg docs/conf.py -m 'update version'
+# update CHANGELOG.rst with recent changes
+  git shortlog <last-version>..HEAD
+  git commit CHANGELOG.rst -m 'update changelog'
 
-# update CHANGELOG.rst  `git shortlog v0.6.4..HEAD`
-  git commit CHANGELOG.rst -m 'update recent changes' 
-  git push
+# NOTE: Version is automatically computed as X.Y.COMMIT_COUNT by CI
+# The base version (X.Y) is read from pyproject.toml
+# To bump the major or minor version, update pyproject.toml:
+#   git commit pyproject.toml -m 'bump version to 2.1.0'
 
-# create release tag on github
-  git tag 0.9.9
-  git push origin 0.9.9
+# push changes to main branch (this triggers automatic PyPI publish)
+  git push origin main
 
-# publish release on
-  open https://github.com/scottprahl/RigolWFM
-  
+# CI will automatically:
+  # 1. Compute version from pyproject.toml + commit count
+  # 2. Inject version into pyproject.toml
+  # 3. Build package
+  # 4. Publish to PyPI
+
 # check that published release gets sent to pypi
-  open https://pypi.org/project/RigolWFM/
+  open https://pypi.org/project/rigolwfm-dho800/
 
-# check that docs get updated
-  open https://RigolWFM.readthedocs.io
-  
-# check that Zenodo is also updated
-  open https://https://zenodo.org/record/8411558
-  
-# check for conda feedstock
-  open https://github.com/conda-forge/RigolWFM-feedstock
+# check GitHub Actions workflow succeeded
+  open https://github.com/aimoda/rigolwfm-dho800/actions

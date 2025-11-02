@@ -12,25 +12,22 @@ docstrings that follow the Google docstring format.
 
 `nbsphinx` convert the Jupyter notebooks to html with nbsphinx, will
 """
-import re
 import os.path
+import sys
+
+# Add parent directory to path to import RigolWFM
+here = os.path.abspath(os.path.dirname(__file__))
+sys.path.insert(0, os.path.join(here, '..'))
+
+import RigolWFM
 
 project = 'rigolwfm-dho800'
 internal_package = 'RigolWFM'
 master_doc = 'index'
 
-def get_init_property(prop):
-    """Return property from __init__.py."""
-    here = os.path.abspath(os.path.dirname(__file__))
-    file_name = os.path.join(here, '..', internal_package, '__init__.py')
-    regex = r'{}\s*=\s*[\'"]([^\'"]*)[\'"]'.format(prop)
-    with open(file_name, 'r', encoding='utf-8') as file:
-        result = re.search(regex, file.read())
-    return result.group(1)
-
-release = get_init_property("__version__")
-author = get_init_property("__author__")
-copyright = get_init_property("__copyright__")
+release = RigolWFM.__version__
+author = RigolWFM.__author__
+copyright = RigolWFM.__copyright__
 
 # Sphinx extension modules
 extensions = [

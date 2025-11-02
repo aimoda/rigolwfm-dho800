@@ -23,21 +23,30 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Compute version from version_base.json and commit count
+      - name: Compute version from pyproject.toml and commit count
         id: version
         run: |
-          # Extract major and minor version from version_base.json
-          MAJOR=$(python3 -c "import json; print(json.load(open('version_base.json'))['major'])")
-          MINOR=$(python3 -c "import json; print(json.load(open('version_base.json'))['minor'])")
+          # Extract base version (X.Y.Z) from pyproject.toml
+          BASE_VERSION=$(grep -m 1 'version = ' pyproject.toml | cut -d'"' -f2)
+
+          # Extract major and minor version (X.Y)
+          MAJOR_MINOR=$(echo "$BASE_VERSION" | cut -d'.' -f1,2)
 
           # Get commit count for patch version
           COMMIT_COUNT=$(git rev-list --count HEAD)
 
           # Compute final version as X.Y.COMMIT_COUNT
-          VERSION="$MAJOR.$MINOR.$COMMIT_COUNT"
+          VERSION="$MAJOR_MINOR.$COMMIT_COUNT"
 
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "Computed version: $VERSION"
+
+      - name: Update version in pyproject.toml
+        run: |
+          # Replace version in pyproject.toml with computed version
+          sed -i 's/^version = ".*"/version = "${{ steps.version.outputs.version }}"/' pyproject.toml
+          echo "Updated pyproject.toml version to ${{ steps.version.outputs.version }}"
+          grep -m 1 'version = ' pyproject.toml
 
       - name: Install build tool
         run: python3 -m pip install build --user
